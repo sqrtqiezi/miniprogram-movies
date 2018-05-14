@@ -1,0 +1,32 @@
+/* pages/list/list.wxss */
+
+.movie-card {
+  display: flex;
+  width: 660rpx;
+  margin: 20rpx;
+  border: 1px solid #E6E7E8;
+  background-color: white;
+}
+
+.movie-card image {
+  width: 40%;
+  height: 340rpx;
+}
+
+.movie-card-body {
+  width: 60%;
+  display: flex;
+  padding: 0 20rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-card-body .title {
+  margin-bottom: 30rpx;
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.movie-card-body .category {
+  font-size: .8em;
+}

@@ -1,0 +1,11 @@
+/**app.wxss**/
+Page {
+  background-color: #F8F9FB;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 

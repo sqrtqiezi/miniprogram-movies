@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <block wx:if="{{movie}}">
+    <navigator url="{{'/pages/detail/detail?id=' + movie.id}}">
+      <image src="{{movie.cover}}" mode="aspectFit" />
+    </navigator>
+    <view class="title">{{movie.title}}</view>
+  </block>
+</view>

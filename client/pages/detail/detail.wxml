@@ -1,0 +1,10 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <block wx:if="{{movie}}">
+    <image src="{{movie.cover}}" mode="aspectFit" />
+    <view class="title">{{movie.title}}</view>
+    <view class="description">
+      {{movie.description}}
+    </view>
+  </block>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/list/list.wxml-->
+<view class="container">
+  <view class="movie-card" wx:for="{{ movies }}" wx:key="{{item.id}}">
+    <image src="{{ item.cover }}" mode="aspectFit"/>
+    <view class="movie-card-body">
+      <view class="title">{{ item.title }}</view>
+      <view class="category">类型：{{ item.category }}</view>
+    </view>
+  </view>
+</view>

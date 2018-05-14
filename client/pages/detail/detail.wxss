@@ -1,0 +1,26 @@
+/* pages/detail/detail.wxss */
+.container {
+  position: relative;
+  margin: 120rpx 40rpx 0;
+  padding-bottom: 40rpx;
+  background-color: white;
+  border: 1rpx solid #E5E8EB;
+  border-radius: 10rpx;
+}
+
+.container image {
+  position: absolute;
+  margin-top: -100rpx;
+  height: 400rpx;
+}
+
+.container .title {
+  margin-top: 360rpx;
+  font-weight: bold;
+}
+
+.container .description {
+  margin-top: 40rpx;
+  padding: 0 100rpx;
+  font-size: .8em;
+}
