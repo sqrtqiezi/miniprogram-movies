@@ -8,7 +8,9 @@
         placeholder="输入文字" cols="30" rows="10"
         maxlength="{{ -1 }}"
         bindblur="handleContentChange" />
-      <button  wx:else class="btn">录音</button>
+      <button wx:else class="btn" bindtap="handleRecord">
+        {{ isRecording ? '结束录音' : '开始录音' }}
+      </button>
     </div>
 
     <button class="btn-submit" bindtap="handleFormSubmit">完成</button>

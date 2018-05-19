@@ -3,6 +3,8 @@ const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
 const app = getApp()
 
+let innerAudioContext
+
 Page({
 
   /**
@@ -23,6 +25,10 @@ Page({
       success: ({ data }) => {
         const { movie, comment } = data.data
         this.setData({ movie, comment })
+
+        if (comment.type == 1) {
+          this.initInnerAudioContext()
+        }
       }
     })
   },
@@ -48,6 +54,45 @@ Page({
         })
       }
     })
+  },
+
+  initInnerAudioContext() {
+    innerAudioContext = wx.createInnerAudioContext()
+    innerAudioContext.autoplay = false
+
+    innerAudioContext.onPlay(() => {
+      console.log('开始播放')
+      this.setData({ isPlaying: true })
+    })
+
+    innerAudioContext.onStop(() => {
+      console.log('播放停止')
+      this.setData({ isPlaying: false })
+    })
+
+    innerAudioContext.onEnded(() => {
+      console.log('播放结束');
+      this.setData({ isPlaying: false });
+    });
+
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+      wx.showToast({
+        icon: 'none',
+        title: '播放异常'
+      })
+      this.setData({ isPlaying: false })
+    })
+  },
+
+  handlePlay() {
+    const { isPlaying } = this.data
+
+    if (!isPlaying) {
+      innerAudioContext.src = this.data.comment.content
+      innerAudioContext.play()
+    }
   },
 
   handleAddComment() {

@@ -1,6 +1,9 @@
 // pages/preview-comment/preview-comment.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
+const app = getApp()
+
+let innerAudioContext
 
 Page({
 
@@ -10,7 +13,8 @@ Page({
   data: {
     movie: null,
     content: '',
-    type: 0
+    type: 0,
+    isPlaying: false
   },
 
   /**
@@ -19,6 +23,10 @@ Page({
   onLoad: function (options) {
     const { type } = options
     this.setData({ type })
+
+    if (type == 1) {
+      this.initInnerAudioContext()
+    }
 
     wx.getStorage({
       key: 'movie',
@@ -36,6 +44,45 @@ Page({
 
   handleRedit() {
     wx.navigateBack()
+  },
+
+  initInnerAudioContext() {
+    innerAudioContext = wx.createInnerAudioContext()
+    innerAudioContext.autoplay = false
+
+    innerAudioContext.onPlay(() => {
+      console.log('开始播放')
+      this.setData({ isPlaying: true })
+    })
+
+    innerAudioContext.onStop(() => {
+      console.log('播放停止')
+      this.setData({ isPlaying: false })
+    })
+
+    innerAudioContext.onEnded(() => {
+      console.log('播放结束');
+      this.setData({ isPlaying: false });
+    });
+
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+      wx.showToast({
+        icon: 'none',
+        title: '播放异常'
+      })
+      this.setData({ isPlaying: false })
+    })
+  },
+
+  handlePlay() {
+    const { isPlaying } = this.data
+
+    if (!isPlaying) {
+      innerAudioContext.src = this.data.content
+      innerAudioContext.play()
+    }
   },
 
   handleCommentSubmit() {

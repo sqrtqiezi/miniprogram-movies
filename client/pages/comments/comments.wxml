@@ -5,6 +5,7 @@
       <image class="avatar" src="{{ item.user_info.avatarUrl }}" />
       <text>{{ item.user_info.nickName }}的影评</text>
     </view>
-    <view class="comment-body">{{ item.content }}</view>
+    <view wx:if="{{ item.type == 0 }}" class="comment-body">{{ item.content }}</view>
+    <view wx:else class="audio">语音</view>
   </navigator>
 </view>

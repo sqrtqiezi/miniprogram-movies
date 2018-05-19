@@ -37,3 +37,14 @@
   overflow: hidden;
   display: block; 
 }
+
+.audio {
+  max-width: 100rpx;
+  margin-left: 80rpx;
+  margin-top: 20rpx;
+  padding: 6rpx 60rpx;
+  font-size: .8em;
+  background-color: #D9E2E8;
+  text-align: center;
+  border: 1rpx solid #B5C5CD;
+}

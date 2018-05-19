@@ -36,7 +36,7 @@
   margin: 0 auto;
 }
 
-.panel .btn {
+.btn {
   font-size: .8em;
   background-color: white;
 }

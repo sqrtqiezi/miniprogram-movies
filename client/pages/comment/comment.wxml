@@ -7,7 +7,7 @@
       <view wx:if="{{ comment.type == 0 }}">
         <text>{{ comment.content }}</text>
       </view>
-      <button wx:else class="btn">录音</button>
+      <button wx:else class="btn" bindtap="handlePlay">播放语音</button>
     </view>
 
     <div class="panel">
