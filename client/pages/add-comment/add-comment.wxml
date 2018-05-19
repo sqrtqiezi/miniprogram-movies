@@ -1,0 +1,16 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <block wx:if="{{movie}}">
+    <image src="{{movie.cover}}" mode="aspectFit" />
+    <view class="title">{{movie.title}}</view>
+    <div class="panel">
+      <textarea wx:if="{{ type == 0 }}" 
+        placeholder="输入文字" cols="30" rows="10"
+        maxlength="{{ -1 }}"
+        bindblur="handleContentChange" />
+      <button  wx:else class="btn">录音</button>
+    </div>
+
+    <button class="btn-submit" bindtap="handleFormSubmit">完成</button>
+  </block>
+</view>

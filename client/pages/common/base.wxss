@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  margin: 120rpx 40rpx 0;
+  padding-bottom: 40rpx;
+  background-color: white;
+  border: 1rpx solid #E5E8EB;
+  border-radius: 10rpx;
+}
+
+.container image {
+  position: absolute;
+  margin-top: -100rpx;
+  height: 400rpx;
+}
+
+.container .title {
+  margin-top: 360rpx;
+  font-weight: bold;
+}
+
+.container .description {
+  margin-top: 40rpx;
+  padding: 0 100rpx;
+  font-size: .8em;
+}
+
+.panel {
+  width: 100%;
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel textarea {
+  width: 600rpx;
+  margin: 0 auto;
+}
+
+.panel .btn {
+  font-size: .8em;
+  background-color: white;
+}
+
+.btn-submit {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px;
+  background-color: #1FB922;
+  color: white;
+}

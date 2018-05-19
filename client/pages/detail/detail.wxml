@@ -6,5 +6,10 @@
     <view class="description">
       {{movie.description}}
     </view>
+
+    <view class="panel">
+      <button class="btn" bindtap="handleShowComments">查看影评</button>
+      <button class="btn" bindtap="handleAddComment">添加影评</button>
+    </view>
   </block>
 </view>

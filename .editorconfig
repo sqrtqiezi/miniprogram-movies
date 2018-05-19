@@ -1,0 +1,10 @@
+root = true
+
+[*]
+indent_style = space
+
+[*.{php}]
+indent_size = 4
+
+[*.{js,html,blade.php,css,scss,wxss,wxml,json}]
+indent_size = 2

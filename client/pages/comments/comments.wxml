@@ -1,0 +1,10 @@
+<!--pages/comments/comments.wxml-->
+<view class="container">
+  <navigator wx:for="{{ comments }}" wx:key="{{ item.key }}" url="{{ '/pages/comment/comment?id=' + item.id }}" class="comment-container">
+    <view class="comment-header">
+      <image class="avatar" src="{{ item.user_info.avatarUrl }}" />
+      <text>{{ item.user_info.nickName }}的影评</text>
+    </view>
+    <view class="comment-body">{{ item.content }}</view>
+  </navigator>
+</view>

@@ -1,0 +1,18 @@
+<!--pages/preview-comment/preview-comment.wxml-->
+<view class="container">
+  <block wx:if="{{movie}}">
+    <image src="{{movie.cover}}" mode="aspectFit" />
+    <view class="title">{{movie.title}}</view>
+    <view class="description">
+      <view wx:if="{{ type == 0 }}">
+        <text>{{ content }}</text>
+      </view>
+      <button  wx:else class="btn">录音</button>
+    </view>
+
+    <div class="panel">
+      <button class="btn" bindtap="handleRedit">重新编辑</button>
+      <button class="btn" bindtap="handleCommentSubmit">发布影评</button>
+    </div>
+  </block>
+</view>

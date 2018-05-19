@@ -1,4 +1,4 @@
-// pages/detail/detail.js
+// pages/comment/comment.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
 const app = getApp()
@@ -9,23 +9,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movie: null
+    movie: null,
+    comment: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const id = options.id
-
+    const { id } = options
     qcloud.request({
-      url: config.service.movieDetailUrl + id,
+      url: config.service.getComment(id),
       success: ({ data }) => {
-        console.log(data)
-        const movie = {
-          ...data.data
-        }
-        this.setData({ movie })
+        const { movie, comment } = data.data
+        this.setData({ movie, comment })
+      }
+    })
+  },
+
+  handleFavorite() {
+    const { comment } = this.data
+    app.checkSession({
+      success: () => {
+        qcloud.request({
+          method: 'POST',
+          url: config.service.favorite(comment.id),
+          success: () => {
+            wx.showToast({
+              title: '收藏成功'
+            })
+          }
+        })
+      },
+      fail: () => {
+        console.log('fail.....')
+        wx.switchTab({
+          url: '/pages/user/user'
+        })
       }
     })
   },
@@ -59,12 +79,6 @@ Page({
           url: '/pages/user/user'
         })
       }
-    })
-  },
-
-  handleShowComments() {
-    wx.navigateTo({
-      url: `/pages/comments/comments?id=${this.data.movie.id}`
     })
   },
 

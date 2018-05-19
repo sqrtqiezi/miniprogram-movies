@@ -2,7 +2,12 @@
   "pages":[
     "pages/index/index",
     "pages/detail/detail",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/add-comment/add-comment",
+    "pages/user/user",
+    "pages/comments/comments",
+    "pages/preview-comment/preview-comment",
+    "pages/comment/comment"
   ],
   "window":{
     "backgroundColor":"#F6F6F6",
@@ -10,5 +15,26 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "看看侃侃电影",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [{
+      "pagePath": "pages/list/list",
+      "text": "首页",
+      "iconPath": "images/hot.png",
+      "selectedIconPath": "images/hot-d.png"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home-d.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/my.png",
+      "selectedIconPath": "images/my-d.png"
+    }]
   }
 }

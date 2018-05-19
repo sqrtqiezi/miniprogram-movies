@@ -1,0 +1,2 @@
+/* pages/preview-comment/preview-comment.wxss */
+@import '../common/base.wxss';

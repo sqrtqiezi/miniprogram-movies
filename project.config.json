@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -42,6 +42,24 @@
 					"name": "list",
 					"pathName": "pages/list/list",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "comments",
+					"pathName": "pages/comments/comments",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
+					"query": "id=1"
 				}
 			]
 		}
